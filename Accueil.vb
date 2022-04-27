@@ -1,6 +1,14 @@
 ﻿Public Class Accueil
     Private Sub Accueil_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GameCore.Main() ' Load Default values
+        checkForSaveFile()
+    End Sub
+
+    Private Sub checkForSaveFile()
+        If Not (System.IO.File.Exists(Settings.saveFilePath)) Then
+            Dim file As IO.StreamWriter = System.IO.File.CreateText("save.msw")
+            file.Close()
+        End If
     End Sub
     Private Sub Accueil_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         Application.ExitThread()

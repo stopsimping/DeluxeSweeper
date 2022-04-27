@@ -115,7 +115,11 @@ Module GameCore
     Public Sub startTimer(sender As Object, e As EventArgs)
         timer.Interval = 1000
         remains = GameCore.getTime()
-        timer.Start()
+
+        If (Settings.timerEnabled) Then
+            timer.Start()
+        End If
+
         timer_Tick(sender, e)
     End Sub
     Private firstClick As Boolean

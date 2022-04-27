@@ -89,7 +89,7 @@ Partial Class GameStats
         '
         Me.lb_mines.AutoSize = True
         Me.lb_mines.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_mines.Location = New System.Drawing.Point(244, 271)
+        Me.lb_mines.Location = New System.Drawing.Point(231, 273)
         Me.lb_mines.Name = "lb_mines"
         Me.lb_mines.Size = New System.Drawing.Size(118, 24)
         Me.lb_mines.TabIndex = 5
@@ -109,7 +109,7 @@ Partial Class GameStats
         '
         Me.lb_latest.AutoSize = True
         Me.lb_latest.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_latest.Location = New System.Drawing.Point(244, 304)
+        Me.lb_latest.Location = New System.Drawing.Point(230, 306)
         Me.lb_latest.Name = "lb_latest"
         Me.lb_latest.Size = New System.Drawing.Size(82, 24)
         Me.lb_latest.TabIndex = 7
@@ -121,15 +121,15 @@ Partial Class GameStats
         Me.lb_dimensions.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lb_dimensions.Location = New System.Drawing.Point(20, 22)
         Me.lb_dimensions.Name = "lb_dimensions"
-        Me.lb_dimensions.Size = New System.Drawing.Size(117, 19)
+        Me.lb_dimensions.Size = New System.Drawing.Size(108, 19)
         Me.lb_dimensions.TabIndex = 9
-        Me.lb_dimensions.Text = "Dimensions: "
+        Me.lb_dimensions.Text = "Dimensions:"
         '
         'lb_dim
         '
         Me.lb_dim.AutoSize = True
         Me.lb_dim.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_dim.Location = New System.Drawing.Point(195, 16)
+        Me.lb_dim.Location = New System.Drawing.Point(125, 24)
         Me.lb_dim.Name = "lb_dim"
         Me.lb_dim.Size = New System.Drawing.Size(99, 19)
         Me.lb_dim.TabIndex = 10
@@ -149,7 +149,7 @@ Partial Class GameStats
         '
         Me.lb_mineshowmany.AutoSize = True
         Me.lb_mineshowmany.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_mineshowmany.Location = New System.Drawing.Point(228, 35)
+        Me.lb_mineshowmany.Location = New System.Drawing.Point(156, 43)
         Me.lb_mineshowmany.Name = "lb_mineshowmany"
         Me.lb_mineshowmany.Size = New System.Drawing.Size(54, 19)
         Me.lb_mineshowmany.TabIndex = 12
@@ -175,7 +175,7 @@ Partial Class GameStats
         '
         Me.lb_sec.AutoSize = True
         Me.lb_sec.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_sec.Location = New System.Drawing.Point(228, 63)
+        Me.lb_sec.Location = New System.Drawing.Point(175, 61)
         Me.lb_sec.Name = "lb_sec"
         Me.lb_sec.Size = New System.Drawing.Size(72, 19)
         Me.lb_sec.TabIndex = 14

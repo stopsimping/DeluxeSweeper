@@ -43,7 +43,7 @@
     End Sub
 
     Private Sub themeChange()
-        ' blabla
+
     End Sub
 
     Private Sub btn_pause_CheckedChanged(sender As Object, e As EventArgs) Handles btn_pause.CheckedChanged
@@ -67,6 +67,7 @@
 
         timerEnabled = btn_timer.Checked
         EnablePause = btn_pause.Checked
+        animationEclatax = btn_animEclatax.Checked
         MsgBox("Settings saved successfully!")
     End Sub
 End Class
