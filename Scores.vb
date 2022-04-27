@@ -1,5 +1,5 @@
 ﻿Module Scores
-    Private Players As New Dictionary(Of String, PlayerEntry)
+    Friend Players As New Dictionary(Of String, PlayerEntry)
     'gros:15:10056:545:44566
     Structure PlayerEntry
         Friend playerName As String
@@ -16,8 +16,9 @@
             Leaderboard.Close()
         End Try
 
-        Leaderboard.lst_leaderboard.ColumnWidth = 170
-        Leaderboard.lst_leaderboard.MultiColumn = True
+        Dim cheatCodeFraude As New ListBox
+        'cheatCodeFraude.Items.Add()
+        Leaderboard.lst_leaderboard.Sorted = True
         Try
             For Each playerName As String In Players.Keys
                 Dim p As PlayerEntry = Players.Item(playerName)
@@ -28,6 +29,7 @@
             MsgBox(e.Message)
         End Try
     End Sub
+
     Public Sub WriteNewEntry()
         Encryption.Write(saveFilePath, "new message")
     End Sub
