@@ -42,6 +42,8 @@
             MsgBox("Your username must have 3 characters or more!", vbOKOnly, "Warning")
         ElseIf (cb_name.Text = "Username") Then
             MsgBox("Please enter a username !", vbOKOnly, "Warning")
+        ElseIf (Not System.Text.RegularExpressions.Regex.IsMatch(cb_name.Text, "^[a-zA-Z0-9]+$")) Then
+            MsgBox("Please use Alphanumerics only.")
         Else
             GameCore.Init(Settings.gridSize, Settings.gridSize, Settings.mines, Settings.seconds, cb_name.Text)
         End If

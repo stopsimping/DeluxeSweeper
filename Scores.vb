@@ -35,14 +35,15 @@
     End Sub
 
     Public Sub loadScoreboard()
+        Leaderboard.lst_leaderboard.Refresh()
         Dim PText As String
         Try
-
             If (System.IO.File.Exists(Settings.saveFilePath)) Then
                 PText = Encryption.Decrypt(saveFilePath)
             Else
                 MsgBox("No file founded, cannot load the scoreboard !")
                 Leaderboard.Close()
+                Return
             End If
 
             For Each line As String In PText.Split(Environment.NewLine)

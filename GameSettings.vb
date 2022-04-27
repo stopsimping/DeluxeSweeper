@@ -57,12 +57,12 @@
 
     Private Sub btn_savePath_Click(sender As Object, e As EventArgs) Handles btn_savePath.Click
         savePath.ShowDialog()
-        tb_filePath.Text = savePath.SelectedPath
+        tb_filePath.Text = savePath.SelectedPath + "\save.msw"
     End Sub
 
     Private Sub btn_save_Click(sender As Object, e As EventArgs) Handles btn_save.Click
         If (saveFilePath <> savePath.SelectedPath) Then
-            saveFilePath = savePath.SelectedPath
+            saveFilePath = savePath.SelectedPath + "\save.msw"
         End If
 
         timerEnabled = btn_timer.Checked

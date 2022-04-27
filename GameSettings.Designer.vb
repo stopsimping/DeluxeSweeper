@@ -38,6 +38,8 @@ Partial Class GameSettings
         Me.grid_dim = New System.Windows.Forms.Label()
         Me.tb_gridSize = New System.Windows.Forms.TrackBar()
         Me.tb_advanced = New System.Windows.Forms.TabPage()
+        Me.btn_animEclatax = New System.Windows.Forms.CheckBox()
+        Me.btn_save = New System.Windows.Forms.Button()
         Me.btn_savePath = New System.Windows.Forms.Button()
         Me.tb_filePath = New System.Windows.Forms.TextBox()
         Me.lb_savePath = New System.Windows.Forms.Label()
@@ -46,8 +48,6 @@ Partial Class GameSettings
         Me.btn_timer = New System.Windows.Forms.CheckBox()
         Me.tb_hack = New System.Windows.Forms.TabPage()
         Me.savePath = New System.Windows.Forms.FolderBrowserDialog()
-        Me.btn_save = New System.Windows.Forms.Button()
-        Me.btn_animEclatax = New System.Windows.Forms.CheckBox()
         Me.tab_settings.SuspendLayout()
         Me.tb_basics.SuspendLayout()
         CType(Me.tb_gridSize, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -224,6 +224,27 @@ Partial Class GameSettings
         Me.tb_advanced.Text = "Advanced"
         Me.tb_advanced.UseVisualStyleBackColor = True
         '
+        'btn_animEclatax
+        '
+        Me.btn_animEclatax.AutoSize = True
+        Me.btn_animEclatax.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_animEclatax.Location = New System.Drawing.Point(6, 195)
+        Me.btn_animEclatax.Name = "btn_animEclatax"
+        Me.btn_animEclatax.Size = New System.Drawing.Size(244, 23)
+        Me.btn_animEclatax.TabIndex = 14
+        Me.btn_animEclatax.Text = "Animation éclatée au sol"
+        Me.btn_animEclatax.UseVisualStyleBackColor = True
+        '
+        'btn_save
+        '
+        Me.btn_save.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_save.Location = New System.Drawing.Point(111, 242)
+        Me.btn_save.Name = "btn_save"
+        Me.btn_save.Size = New System.Drawing.Size(75, 23)
+        Me.btn_save.TabIndex = 13
+        Me.btn_save.Text = "Save"
+        Me.btn_save.UseVisualStyleBackColor = True
+        '
         'btn_savePath
         '
         Me.btn_savePath.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -304,27 +325,6 @@ Partial Class GameSettings
         '
         Me.savePath.Description = "Save file path"
         Me.savePath.SelectedPath = "."
-        '
-        'btn_save
-        '
-        Me.btn_save.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_save.Location = New System.Drawing.Point(111, 242)
-        Me.btn_save.Name = "btn_save"
-        Me.btn_save.Size = New System.Drawing.Size(75, 23)
-        Me.btn_save.TabIndex = 13
-        Me.btn_save.Text = "Save"
-        Me.btn_save.UseVisualStyleBackColor = True
-        '
-        'btn_animEclatax
-        '
-        Me.btn_animEclatax.AutoSize = True
-        Me.btn_animEclatax.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_animEclatax.Location = New System.Drawing.Point(6, 195)
-        Me.btn_animEclatax.Name = "btn_animEclatax"
-        Me.btn_animEclatax.Size = New System.Drawing.Size(244, 23)
-        Me.btn_animEclatax.TabIndex = 14
-        Me.btn_animEclatax.Text = "Animation éclatée au sol"
-        Me.btn_animEclatax.UseVisualStyleBackColor = True
         '
         'GameSettings
         '
