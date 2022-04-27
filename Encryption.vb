@@ -17,7 +17,7 @@ Module Encryption
         Try
             Dim CText As String = My.Computer.FileSystem.ReadAllText(filePath)
             Dim PText As String = SecurityLayer.doDecrypt(CText)
-            My.Computer.FileSystem.WriteAllText(filePath, PText, False)
+            'My.Computer.FileSystem.WriteAllText(filePath, PText, False)
             MsgBox("File has been decrypted successfully.")
             Return PText
         Catch ex As Exception
