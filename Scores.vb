@@ -20,13 +20,14 @@
 
     Public Function getBestGameForEachPlayer()
         Dim bestGames As New Dictionary(Of String, GameRecord)
+        GlobalScoreboard = GlobalScoreboard.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
 
         For Each gr As GameRecord In GlobalScoreboard
             If Not (bestGames.ContainsKey(gr.performedBy)) Then
                 bestGames.Add(gr.performedBy, gr)
             End If
         Next
-        Return bestGames
+        Return bestGames.Values.ToList
     End Function
     Public Sub LoadEntries()
         Try
@@ -39,17 +40,22 @@
             Leaderboard.Close()
         End Try
 
-        If (OrderByDesc) Then
-            GlobalScoreboard = GlobalScoreboard.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
-        Else
-            GlobalScoreboard = GlobalScoreboard.OrderBy(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
-        End If
+        'If (OrderByDesc) Then
+        'GlobalScoreboard = GlobalScoreboard.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
+        'Else
+        'GlobalScoreboard = GlobalScoreboard.OrderBy(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
+        'End If
 
-        Dim bestGame As Dictionary(Of String, GameRecord) = getBestGameForEachPlayer()
+        Dim bestGame As List(Of GameRecord) = getBestGameForEachPlayer()
+        If (OrderByDesc) Then
+            bestGame = bestGame.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
+        Else
+            bestGame = bestGame.OrderBy(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
+        End If
 
         Try
             Dim place As Integer = 1
-            For Each player As String In bestGame.Keys
+            For Each playerEntry As GameRecord In bestGame
                 Dim rank As String
                 If place = 1 Then
                     rank = "1st : "
@@ -61,7 +67,6 @@
                     rank = place & "th : "
                 End If
 
-                Dim playerEntry As GameRecord = bestGame.Item(player)
                 Leaderboard.lst_leaderboard.Items.Add(rank & playerEntry.performedBy & " has discovered " & playerEntry.howManyCasesDiscovered & " cases in " & playerEntry.lastDiscoveredAt & " seconds.")
                 place += 1
             Next
