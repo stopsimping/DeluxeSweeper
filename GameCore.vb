@@ -302,6 +302,7 @@ Module GameCore
             GameCore.changeGameRunning(False)
             Game.abandon.Enabled = False
             Game.pause.Enabled = False
+
             Try
                 Scores.newRecord(username, seconds - lastDiscovered, discoveredCases)
             Catch ex As Exception
@@ -344,7 +345,6 @@ Module GameCore
             ' And (cell.isFlagged Or Not cell.isFlagged)
             If ((Not cell.isRevealed) And cell.getValue = "M" And (cell.isFlagged Or Not mineRevealedOrNotMineFlagged)) Then
                 discoveredMines += 1
-                MsgBox(CStr(discoveredMines))
             ElseIf ((cell.isFlagged Or Not cell.isRevealed) And cell.getValue() <> "M") Or (cell.getValue = "M" And cell.isRevealed) Then
                 mineRevealedOrNotMineFlagged = True
             End If
