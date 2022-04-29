@@ -20,6 +20,7 @@ Module Encryption
             Return PText
         Catch ex As Exception
             MsgBox(ex.Message)
+            Return "unknown:0:0"
         End Try
     End Function
 

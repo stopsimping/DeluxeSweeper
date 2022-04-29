@@ -102,6 +102,7 @@
     <Compile Include="Accueil.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Cell.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -226,7 +227,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="deluxesweeper.ico" />
     <Content Include="mine.ico" />
     <None Include="Resources\bingchilling.jpeg" />
     <None Include="Resources\death.wav" />

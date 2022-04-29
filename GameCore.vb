@@ -313,7 +313,7 @@ Module GameCore
                 GameLost()
                 Game.RevealAll()
                 GameStats.lose.Visible = True
-                TimeOut(2)
+                TimeOut(1)
             End If
             GameStats.Show()
         End If

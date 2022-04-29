@@ -26,7 +26,6 @@ Partial Class GameSettings
         Me.tab_settings = New System.Windows.Forms.TabControl()
         Me.tb_basics = New System.Windows.Forms.TabPage()
         Me.cb_deathsound = New System.Windows.Forms.CheckBox()
-        Me.btn_saveBasics = New System.Windows.Forms.Button()
         Me.lb_theme = New System.Windows.Forms.Label()
         Me.cb_theme = New System.Windows.Forms.ComboBox()
         Me.lb_mines = New System.Windows.Forms.Label()
@@ -40,7 +39,6 @@ Partial Class GameSettings
         Me.tb_gridSize = New System.Windows.Forms.TrackBar()
         Me.tb_advanced = New System.Windows.Forms.TabPage()
         Me.btn_animEclatax = New System.Windows.Forms.CheckBox()
-        Me.btn_save = New System.Windows.Forms.Button()
         Me.btn_savePath = New System.Windows.Forms.Button()
         Me.tb_filePath = New System.Windows.Forms.TextBox()
         Me.lb_savePath = New System.Windows.Forms.Label()
@@ -53,11 +51,11 @@ Partial Class GameSettings
         Me.btn_pause = New System.Windows.Forms.CheckBox()
         Me.btn_timer = New System.Windows.Forms.CheckBox()
         Me.tb_hack = New System.Windows.Forms.TabPage()
-        Me.btn_hack = New System.Windows.Forms.Button()
         Me.gb_hack = New System.Windows.Forms.GroupBox()
         Me.rb_disable = New System.Windows.Forms.RadioButton()
         Me.rb_lose = New System.Windows.Forms.RadioButton()
         Me.rb_win = New System.Windows.Forms.RadioButton()
+        Me.btn_save = New System.Windows.Forms.Button()
         Me.savePath = New System.Windows.Forms.FolderBrowserDialog()
         Me.tab_settings.SuspendLayout()
         Me.tb_basics.SuspendLayout()
@@ -78,13 +76,12 @@ Partial Class GameSettings
         Me.tab_settings.Location = New System.Drawing.Point(12, 19)
         Me.tab_settings.Name = "tab_settings"
         Me.tab_settings.SelectedIndex = 0
-        Me.tab_settings.Size = New System.Drawing.Size(298, 297)
+        Me.tab_settings.Size = New System.Drawing.Size(298, 293)
         Me.tab_settings.TabIndex = 1
         '
         'tb_basics
         '
         Me.tb_basics.Controls.Add(Me.cb_deathsound)
-        Me.tb_basics.Controls.Add(Me.btn_saveBasics)
         Me.tb_basics.Controls.Add(Me.lb_theme)
         Me.tb_basics.Controls.Add(Me.cb_theme)
         Me.tb_basics.Controls.Add(Me.lb_mines)
@@ -99,7 +96,7 @@ Partial Class GameSettings
         Me.tb_basics.Location = New System.Drawing.Point(4, 24)
         Me.tb_basics.Name = "tb_basics"
         Me.tb_basics.Padding = New System.Windows.Forms.Padding(3)
-        Me.tb_basics.Size = New System.Drawing.Size(290, 269)
+        Me.tb_basics.Size = New System.Drawing.Size(290, 265)
         Me.tb_basics.TabIndex = 0
         Me.tb_basics.Text = "Basics"
         Me.tb_basics.UseVisualStyleBackColor = True
@@ -114,16 +111,6 @@ Partial Class GameSettings
         Me.cb_deathsound.TabIndex = 14
         Me.cb_deathsound.Text = "Enable death sound"
         Me.cb_deathsound.UseVisualStyleBackColor = True
-        '
-        'btn_saveBasics
-        '
-        Me.btn_saveBasics.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_saveBasics.Location = New System.Drawing.Point(111, 242)
-        Me.btn_saveBasics.Name = "btn_saveBasics"
-        Me.btn_saveBasics.Size = New System.Drawing.Size(75, 23)
-        Me.btn_saveBasics.TabIndex = 12
-        Me.btn_saveBasics.Text = "Save"
-        Me.btn_saveBasics.UseVisualStyleBackColor = True
         '
         'lb_theme
         '
@@ -238,7 +225,6 @@ Partial Class GameSettings
         'tb_advanced
         '
         Me.tb_advanced.Controls.Add(Me.btn_animEclatax)
-        Me.tb_advanced.Controls.Add(Me.btn_save)
         Me.tb_advanced.Controls.Add(Me.btn_savePath)
         Me.tb_advanced.Controls.Add(Me.tb_filePath)
         Me.tb_advanced.Controls.Add(Me.lb_savePath)
@@ -246,7 +232,7 @@ Partial Class GameSettings
         Me.tb_advanced.Location = New System.Drawing.Point(4, 24)
         Me.tb_advanced.Name = "tb_advanced"
         Me.tb_advanced.Padding = New System.Windows.Forms.Padding(3)
-        Me.tb_advanced.Size = New System.Drawing.Size(290, 269)
+        Me.tb_advanced.Size = New System.Drawing.Size(290, 265)
         Me.tb_advanced.TabIndex = 1
         Me.tb_advanced.Text = "Advanced"
         Me.tb_advanced.UseVisualStyleBackColor = True
@@ -261,16 +247,6 @@ Partial Class GameSettings
         Me.btn_animEclatax.TabIndex = 14
         Me.btn_animEclatax.Text = "Animation éclatée au sol"
         Me.btn_animEclatax.UseVisualStyleBackColor = True
-        '
-        'btn_save
-        '
-        Me.btn_save.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_save.Location = New System.Drawing.Point(111, 242)
-        Me.btn_save.Name = "btn_save"
-        Me.btn_save.Size = New System.Drawing.Size(75, 23)
-        Me.btn_save.TabIndex = 13
-        Me.btn_save.Text = "Save"
-        Me.btn_save.UseVisualStyleBackColor = True
         '
         'btn_savePath
         '
@@ -391,25 +367,14 @@ Partial Class GameSettings
         '
         'tb_hack
         '
-        Me.tb_hack.Controls.Add(Me.btn_hack)
         Me.tb_hack.Controls.Add(Me.gb_hack)
         Me.tb_hack.Location = New System.Drawing.Point(4, 24)
         Me.tb_hack.Name = "tb_hack"
         Me.tb_hack.Padding = New System.Windows.Forms.Padding(3)
-        Me.tb_hack.Size = New System.Drawing.Size(290, 269)
+        Me.tb_hack.Size = New System.Drawing.Size(290, 265)
         Me.tb_hack.TabIndex = 2
         Me.tb_hack.Text = "Hack"
         Me.tb_hack.UseVisualStyleBackColor = True
-        '
-        'btn_hack
-        '
-        Me.btn_hack.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_hack.Location = New System.Drawing.Point(109, 240)
-        Me.btn_hack.Name = "btn_hack"
-        Me.btn_hack.Size = New System.Drawing.Size(75, 23)
-        Me.btn_hack.TabIndex = 14
-        Me.btn_hack.Text = "Save"
-        Me.btn_hack.UseVisualStyleBackColor = True
         '
         'gb_hack
         '
@@ -456,6 +421,16 @@ Partial Class GameSettings
         Me.rb_win.Text = "Always win"
         Me.rb_win.UseVisualStyleBackColor = True
         '
+        'btn_save
+        '
+        Me.btn_save.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_save.Location = New System.Drawing.Point(120, 312)
+        Me.btn_save.Name = "btn_save"
+        Me.btn_save.Size = New System.Drawing.Size(75, 23)
+        Me.btn_save.TabIndex = 13
+        Me.btn_save.Text = "Save"
+        Me.btn_save.UseVisualStyleBackColor = True
+        '
         'savePath
         '
         Me.savePath.Description = "Save file path"
@@ -465,8 +440,9 @@ Partial Class GameSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(325, 328)
+        Me.ClientSize = New System.Drawing.Size(325, 348)
         Me.Controls.Add(Me.tab_settings)
+        Me.Controls.Add(Me.btn_save)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "GameSettings"
@@ -502,7 +478,6 @@ Partial Class GameSettings
     Friend WithEvents lb_mines As Label
     Friend WithEvents lb_theme As Label
     Friend WithEvents cb_theme As ComboBox
-    Friend WithEvents btn_saveBasics As Button
     Friend WithEvents gb_pauseAndtimer As GroupBox
     Friend WithEvents btn_pause As CheckBox
     Friend WithEvents btn_timer As CheckBox
@@ -520,7 +495,6 @@ Partial Class GameSettings
     Friend WithEvents gb_hack As GroupBox
     Friend WithEvents rb_lose As RadioButton
     Friend WithEvents rb_win As RadioButton
-    Friend WithEvents btn_hack As Button
     Friend WithEvents rb_disable As RadioButton
     Friend WithEvents cb_deathsound As CheckBox
 End Class
