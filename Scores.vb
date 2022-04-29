@@ -17,10 +17,14 @@
         Friend howManyCasesDiscovered As Integer
         Friend performedBy As String
     End Structure
-
+    Public Sub newRecord(playerName As String, lastDiscoveredAt As Integer, howManyCasesDiscovered As Integer)
+        Dim record As String = playerName & ":" & lastDiscoveredAt & ":" & howManyCasesDiscovered
+        MsgBox("record : " & record)
+        Encryption.Write(saveFilePath, record)
+    End Sub
     Public Function getBestGameForEachPlayer()
         Dim bestGames As New Dictionary(Of String, GameRecord)
-        GlobalScoreboard = GlobalScoreboard.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
+        GlobalScoreboard = GlobalScoreboard.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ThenBy(Function(x) x.performedBy).ToList()
 
         For Each gr As GameRecord In GlobalScoreboard
             If Not (bestGames.ContainsKey(gr.performedBy)) Then
@@ -73,10 +77,6 @@
         Catch e As Exception
             MsgBox(e.Message)
         End Try
-    End Sub
-
-    Public Sub WriteNewEntry(playerName As Integer, lastDiscoveredAt As Integer, howManyCasesDiscovered As Integer)
-        Encryption.Write(saveFilePath, playerName & ":" & lastDiscoveredAt & ":" & howManyCasesDiscovered)
     End Sub
 
     Public Sub loadScoreboard()

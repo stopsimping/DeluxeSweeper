@@ -8,7 +8,8 @@ Module GameCore
     Private time As Integer
     Private username As String
     Private lastDiscovered As Integer
-    Private discovered As Integer
+    Private discoveredMines As Integer
+    Private discoveredCases As Integer
 
     Private remainingFlags As Integer
     Private gameRunning As Boolean = False
@@ -33,7 +34,8 @@ Module GameCore
         grid = New String(0 To columns - 1, 0 To rows - 1) {}
 
         remainingFlags = mines
-        discovered = 0
+        discoveredMines = 0
+        discoveredCases = 0
         lastDiscovered = Settings.seconds
         Game.lb_flagc.Text = CType(remainingFlags, String)
         firstClick = True
@@ -87,7 +89,7 @@ Module GameCore
         Return GameCore.rows
     End Function
     Public Function getDiscoMines()
-        Return discovered
+        Return discoveredMines
     End Function
     Public Function getTime()
         Return time
@@ -300,6 +302,11 @@ Module GameCore
             GameCore.changeGameRunning(False)
             Game.abandon.Enabled = False
             Game.pause.Enabled = False
+            Try
+                Scores.newRecord(username, seconds - lastDiscovered, discoveredCases)
+            Catch ex As Exception
+                MsgBox(ex.Message & Environment.NewLine & "Cannot write the game into the scoreboard!")
+            End Try
 
             If (GameCore.isGameWon()) Then
                 GameStats.win.Visible = True
@@ -325,7 +332,7 @@ Module GameCore
 
     Private mineRevealedOrNotMineFlagged
     Public Function isGameWon()
-        discovered = 0
+        discoveredMines = 0
 
         For Each cell As Cell In Game.p_cases.Controls
             If ((cell.isFlagged Or Not cell.isRevealed) And cell.getValue() <> "M") Or (cell.getValue = "M" And cell.isRevealed) Then
@@ -336,18 +343,19 @@ Module GameCore
         For Each cell As Cell In Game.p_cases.Controls
             ' And (cell.isFlagged Or Not cell.isFlagged)
             If ((Not cell.isRevealed) And cell.getValue = "M" And (cell.isFlagged Or Not mineRevealedOrNotMineFlagged)) Then
-                discovered += 1
-                MsgBox(CStr(discovered))
+                discoveredMines += 1
+                MsgBox(CStr(discoveredMines))
             ElseIf ((cell.isFlagged Or Not cell.isRevealed) And cell.getValue() <> "M") Or (cell.getValue = "M" And cell.isRevealed) Then
                 mineRevealedOrNotMineFlagged = True
             End If
         Next
 
-        Return (discovered = mines) And Not mineRevealedOrNotMineFlagged
+        Return (discoveredMines = mines) And Not mineRevealedOrNotMineFlagged
     End Function
 
+
     Private Sub CheckEverythingDiscovered()
-        Dim discoveredCases As Integer = 0
+        discoveredCases = 0
 
         For Each cell As Cell In Game.p_cases.Controls
             If (cell.isRevealed()) Then

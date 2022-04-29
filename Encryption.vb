@@ -29,9 +29,10 @@ Module Encryption
     ' Our function
     Public Sub Write(filePath As String, message As String)
         Try
-            Dim PText As String = My.Computer.FileSystem.ReadAllText(Encryption.Decrypt(filePath))
-            Dim CText As String = SecurityLayer.doEncrypt(PText + +Environment.NewLine + message)
-            My.Computer.FileSystem.WriteAllText(filePath, CText, True)
+            Dim PText As String = Encryption.Decrypt(filePath)
+            MsgBox(PText)
+            Dim CText As String = SecurityLayer.doEncrypt(PText & Environment.NewLine & message)
+            My.Computer.FileSystem.WriteAllText(filePath, CText, False)
             MsgBox("Message written successfully")
         Catch ex As Exception
             MsgBox(ex.Message)
