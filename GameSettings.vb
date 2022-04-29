@@ -11,15 +11,20 @@
         Me.btn_pause.Checked = EnablePause
         Me.tb_filePath.Text = saveFilePath
         Me.lb_seconds.Text = CStr(seconds)
+        Me.cb_deathsound.Checked = Settings.enableDeathsound
         Me.BackColor = theme
         savePath.SelectedPath = saveFilePath
 
         Dim enumColor As New KnownColor
         Dim Colors As Array = [Enum].GetValues(enumColor.GetType())
         cb_theme.DataSource = Colors
+        Me.cb_theme.SelectedIndex = 163 ' White
     End Sub
     Private Sub tb_gridSize_Scroll(sender As Object, e As EventArgs) Handles tb_gridSize.Scroll
         Settings.gridSize = tb_gridSize.Value + (tb_gridSize.Value Mod 2)
+        If Settings.gridSize = 12 Or Settings.gridSize = 14 Then
+            Settings.gridSize = 16
+        End If
         Me.lb_dim.Text = CType(gridSize, String) + "x" + CType(gridSize, String) + " grid"
         Me.sb_mines.Maximum = (gridSize * gridSize) - 1
 
@@ -28,7 +33,7 @@
         End If
 
         If (Me.sb_mines.Value >= Me.sb_mines.Maximum) Then
-            Settings.mines = sb_mines.Value
+            Settings.mines = Me.sb_mines.Maximum
             Me.lb_mines.Text = CType(mines, String) + " mines"
         End If
 
@@ -78,7 +83,6 @@
     End Sub
 
     Private Sub btn_saveBasics_Click(sender As Object, e As EventArgs) Handles btn_saveBasics.Click
-
         If [Enum].IsDefined(GetType(KnownColor), cb_theme.Text) Then
             theme = Color.FromName(cb_theme.Text)
         End If
@@ -86,5 +90,20 @@
         For Each form As Form In My.Application.OpenForms
             form.BackColor = theme
         Next
+        Settings.enableDeathsound = cb_deathsound.Checked
+        MsgBox("Settings saved successfully!")
+    End Sub
+
+    Private Sub btn_hack_Click(sender As Object, e As EventArgs) Handles btn_hack.Click
+        Settings.alwaysWin = rb_win.Checked
+        Settings.alwaysLose = rb_win.Checked
+
+        If (rb_disable.Checked) Then
+            Settings.alwaysWin = False
+            Settings.alwaysLose = False
+        End If
+
+        MsgBox("Settings saved successfully!")
+        Me.Close()
     End Sub
 End Class

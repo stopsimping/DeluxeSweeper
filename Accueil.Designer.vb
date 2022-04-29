@@ -35,10 +35,11 @@ Partial Class Accueil
         '
         'cb_name
         '
+        Me.cb_name.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_name.FormattingEnabled = True
         Me.cb_name.Location = New System.Drawing.Point(12, 116)
         Me.cb_name.Name = "cb_name"
-        Me.cb_name.Size = New System.Drawing.Size(235, 21)
+        Me.cb_name.Size = New System.Drawing.Size(235, 23)
         Me.cb_name.TabIndex = 0
         Me.cb_name.Text = "Username"
         '
@@ -46,16 +47,16 @@ Partial Class Accueil
         '
         Me.lb_name.AutoSize = True
         Me.lb_name.BackColor = System.Drawing.Color.Transparent
-        Me.lb_name.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_name.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lb_name.Location = New System.Drawing.Point(49, 83)
         Me.lb_name.Name = "lb_name"
-        Me.lb_name.Size = New System.Drawing.Size(165, 20)
+        Me.lb_name.Size = New System.Drawing.Size(154, 15)
         Me.lb_name.TabIndex = 1
         Me.lb_name.Text = "Enter your username :"
         '
         'bt_start
         '
-        Me.bt_start.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bt_start.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bt_start.Location = New System.Drawing.Point(12, 143)
         Me.bt_start.Name = "bt_start"
         Me.bt_start.Size = New System.Drawing.Size(235, 57)
@@ -65,6 +66,7 @@ Partial Class Accueil
         '
         'bt_quit
         '
+        Me.bt_quit.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bt_quit.Location = New System.Drawing.Point(202, 12)
         Me.bt_quit.Name = "bt_quit"
         Me.bt_quit.Size = New System.Drawing.Size(45, 23)

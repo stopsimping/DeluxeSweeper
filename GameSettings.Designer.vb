@@ -52,13 +52,21 @@ Partial Class GameSettings
         Me.btn_pause = New System.Windows.Forms.CheckBox()
         Me.btn_timer = New System.Windows.Forms.CheckBox()
         Me.tb_hack = New System.Windows.Forms.TabPage()
+        Me.btn_hack = New System.Windows.Forms.Button()
+        Me.gb_hack = New System.Windows.Forms.GroupBox()
+        Me.rb_disable = New System.Windows.Forms.RadioButton()
+        Me.rb_lose = New System.Windows.Forms.RadioButton()
+        Me.rb_win = New System.Windows.Forms.RadioButton()
         Me.savePath = New System.Windows.Forms.FolderBrowserDialog()
+        Me.cb_deathsound = New System.Windows.Forms.CheckBox()
         Me.tab_settings.SuspendLayout()
         Me.tb_basics.SuspendLayout()
         CType(Me.tb_gridSize, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tb_advanced.SuspendLayout()
         Me.gb_pauseAndtimer.SuspendLayout()
         CType(Me.tb_seconds, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tb_hack.SuspendLayout()
+        Me.gb_hack.SuspendLayout()
         Me.SuspendLayout()
         '
         'tab_settings
@@ -75,6 +83,7 @@ Partial Class GameSettings
         '
         'tb_basics
         '
+        Me.tb_basics.Controls.Add(Me.cb_deathsound)
         Me.tb_basics.Controls.Add(Me.btn_saveBasics)
         Me.tb_basics.Controls.Add(Me.lb_theme)
         Me.tb_basics.Controls.Add(Me.cb_theme)
@@ -371,6 +380,8 @@ Partial Class GameSettings
         '
         'tb_hack
         '
+        Me.tb_hack.Controls.Add(Me.btn_hack)
+        Me.tb_hack.Controls.Add(Me.gb_hack)
         Me.tb_hack.Location = New System.Drawing.Point(4, 24)
         Me.tb_hack.Name = "tb_hack"
         Me.tb_hack.Padding = New System.Windows.Forms.Padding(3)
@@ -379,10 +390,76 @@ Partial Class GameSettings
         Me.tb_hack.Text = "Hack"
         Me.tb_hack.UseVisualStyleBackColor = True
         '
+        'btn_hack
+        '
+        Me.btn_hack.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_hack.Location = New System.Drawing.Point(109, 240)
+        Me.btn_hack.Name = "btn_hack"
+        Me.btn_hack.Size = New System.Drawing.Size(75, 23)
+        Me.btn_hack.TabIndex = 14
+        Me.btn_hack.Text = "Save"
+        Me.btn_hack.UseVisualStyleBackColor = True
+        '
+        'gb_hack
+        '
+        Me.gb_hack.Controls.Add(Me.rb_disable)
+        Me.gb_hack.Controls.Add(Me.rb_lose)
+        Me.gb_hack.Controls.Add(Me.rb_win)
+        Me.gb_hack.Location = New System.Drawing.Point(6, 6)
+        Me.gb_hack.Name = "gb_hack"
+        Me.gb_hack.Size = New System.Drawing.Size(278, 97)
+        Me.gb_hack.TabIndex = 0
+        Me.gb_hack.TabStop = False
+        Me.gb_hack.Text = "Super powers"
+        '
+        'rb_disable
+        '
+        Me.rb_disable.AutoSize = True
+        Me.rb_disable.Location = New System.Drawing.Point(82, 63)
+        Me.rb_disable.Name = "rb_disable"
+        Me.rb_disable.Size = New System.Drawing.Size(109, 19)
+        Me.rb_disable.TabIndex = 2
+        Me.rb_disable.TabStop = True
+        Me.rb_disable.Text = "Disable hack"
+        Me.rb_disable.UseVisualStyleBackColor = True
+        '
+        'rb_lose
+        '
+        Me.rb_lose.AutoSize = True
+        Me.rb_lose.Location = New System.Drawing.Point(176, 35)
+        Me.rb_lose.Name = "rb_lose"
+        Me.rb_lose.Size = New System.Drawing.Size(102, 19)
+        Me.rb_lose.TabIndex = 1
+        Me.rb_lose.TabStop = True
+        Me.rb_lose.Text = "Always Lose"
+        Me.rb_lose.UseVisualStyleBackColor = True
+        '
+        'rb_win
+        '
+        Me.rb_win.AutoSize = True
+        Me.rb_win.Location = New System.Drawing.Point(6, 35)
+        Me.rb_win.Name = "rb_win"
+        Me.rb_win.Size = New System.Drawing.Size(95, 19)
+        Me.rb_win.TabIndex = 0
+        Me.rb_win.TabStop = True
+        Me.rb_win.Text = "Always win"
+        Me.rb_win.UseVisualStyleBackColor = True
+        '
         'savePath
         '
         Me.savePath.Description = "Save file path"
         Me.savePath.SelectedPath = "."
+        '
+        'cb_deathsound
+        '
+        Me.cb_deathsound.AutoSize = True
+        Me.cb_deathsound.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_deathsound.Location = New System.Drawing.Point(10, 213)
+        Me.cb_deathsound.Name = "cb_deathsound"
+        Me.cb_deathsound.Size = New System.Drawing.Size(190, 23)
+        Me.cb_deathsound.TabIndex = 14
+        Me.cb_deathsound.Text = "Enable death sound"
+        Me.cb_deathsound.UseVisualStyleBackColor = True
         '
         'GameSettings
         '
@@ -403,6 +480,9 @@ Partial Class GameSettings
         Me.gb_pauseAndtimer.ResumeLayout(False)
         Me.gb_pauseAndtimer.PerformLayout()
         CType(Me.tb_seconds, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tb_hack.ResumeLayout(False)
+        Me.gb_hack.ResumeLayout(False)
+        Me.gb_hack.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -436,4 +516,10 @@ Partial Class GameSettings
     Friend WithEvents lb_seconds As Label
     Friend WithEvents lb_howmanyseconds As Label
     Friend WithEvents tb_seconds As TrackBar
+    Friend WithEvents gb_hack As GroupBox
+    Friend WithEvents rb_lose As RadioButton
+    Friend WithEvents rb_win As RadioButton
+    Friend WithEvents btn_hack As Button
+    Friend WithEvents rb_disable As RadioButton
+    Friend WithEvents cb_deathsound As CheckBox
 End Class

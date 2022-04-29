@@ -194,6 +194,7 @@ Partial Class Game
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CausesValidation = False
         Me.ClientSize = New System.Drawing.Size(491, 528)
+        Me.ControlBox = False
         Me.Controls.Add(Me.boom)
         Me.Controls.Add(Me.sad)
         Me.Controls.Add(Me.pause)
@@ -203,6 +204,8 @@ Partial Class Game
         Me.Controls.Add(Me.pb_pause)
         Me.Controls.Add(Me.p_cases)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Game"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Game"

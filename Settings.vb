@@ -9,4 +9,5 @@
     Friend alwaysWin As Boolean = False
     Friend alwaysLose As Boolean = False
     Friend animationEclatax As Boolean = False
+    Friend enableDeathsound As Boolean = True
 End Module

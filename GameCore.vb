@@ -53,7 +53,9 @@ Module GameCore
 
         If (Settings.alwaysWin) Then
             h4ck4ut0r3s0l3r.autoResolve(True)
-        ElseIf (Settings.alwaysLose) Then
+        End If
+
+        If (Settings.alwaysLose) Then
             h4ck4ut0r3s0l3r.trollAlwaysLoose(True)
         End If
 
@@ -376,12 +378,14 @@ Module GameCore
     Private Sub GameOverAnimation()
         Randomize()
         Dim Middle As New Point(Game.gameoverStatic.Location.X, Game.gameoverStatic.Location.Y)
-        Dim poop As New Label()
-        poop.Text = "poop"
-        poop.Location = Middle
         ' Game.gameover pour le gif
         Game.gameoverStatic.Visible = True
-        My.Computer.Audio.Play(My.Resources.img.death, AudioPlayMode.WaitToComplete)
+
+
+        If (Settings.enableDeathsound) Then
+            My.Computer.Audio.Play(My.Resources.img.death, AudioPlayMode.WaitToComplete)
+        End If
+
         Game.sad.Visible = True
 
         If (Settings.animationEclatax) Then

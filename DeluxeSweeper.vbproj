@@ -227,6 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="deluxesweeper.ico" />
+    <None Include="Resources\bingchilling.jpeg" />
     <None Include="Resources\death.wav" />
     <None Include="Resources\sad.png" />
     <None Include="Resources\gameoverStatic.png" />
