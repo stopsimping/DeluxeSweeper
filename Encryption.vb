@@ -23,17 +23,18 @@ Module Encryption
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Return "bruh"
     End Function
 
     ' Our function
-    Public Function Write(filePath As String, message As String)
+    Public Sub Write(filePath As String, message As String)
         Try
             Dim PText As String = My.Computer.FileSystem.ReadAllText(Encryption.Decrypt(filePath))
             Dim CText As String = SecurityLayer.doEncrypt(PText + +Environment.NewLine + message)
-            My.Computer.FileSystem.WriteAllText(filePath, CText, False)
+            My.Computer.FileSystem.WriteAllText(filePath, CText, True)
             MsgBox("Message written successfully")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Function
+    End Sub
 End Module

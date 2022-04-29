@@ -25,6 +25,7 @@ Partial Class Leaderboard
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Leaderboard))
         Me.lb_scoreboard = New System.Windows.Forms.Label()
         Me.lst_leaderboard = New System.Windows.Forms.ListBox()
+        Me.btn_sort = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lb_scoreboard
@@ -41,17 +42,28 @@ Partial Class Leaderboard
         '
         Me.lst_leaderboard.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_leaderboard.FormattingEnabled = True
+        Me.lst_leaderboard.HorizontalScrollbar = True
         Me.lst_leaderboard.ItemHeight = 19
         Me.lst_leaderboard.Location = New System.Drawing.Point(201, 45)
         Me.lst_leaderboard.Name = "lst_leaderboard"
-        Me.lst_leaderboard.Size = New System.Drawing.Size(473, 251)
+        Me.lst_leaderboard.Size = New System.Drawing.Size(492, 251)
         Me.lst_leaderboard.TabIndex = 2
+        '
+        'btn_sort
+        '
+        Me.btn_sort.Location = New System.Drawing.Point(343, 302)
+        Me.btn_sort.Name = "btn_sort"
+        Me.btn_sort.Size = New System.Drawing.Size(214, 23)
+        Me.btn_sort.TabIndex = 3
+        Me.btn_sort.Text = "Unknown state"
+        Me.btn_sort.UseVisualStyleBackColor = True
         '
         'Leaderboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(705, 354)
+        Me.Controls.Add(Me.btn_sort)
         Me.Controls.Add(Me.lst_leaderboard)
         Me.Controls.Add(Me.lb_scoreboard)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -64,4 +76,5 @@ Partial Class Leaderboard
     End Sub
     Friend WithEvents lb_scoreboard As Label
     Friend WithEvents lst_leaderboard As ListBox
+    Friend WithEvents btn_sort As Button
 End Class

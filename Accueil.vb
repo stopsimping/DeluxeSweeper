@@ -1,6 +1,7 @@
 ﻿Public Class Accueil
     Private Sub Accueil_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GameCore.Main() ' Load Default values
+        'Encrypt(saveFilePath)
         checkForSaveFile()
         For Each name As String In Scores.Players.Keys
             Me.cb_name.Items.Add(name)

@@ -1,37 +1,77 @@
 ﻿Module Scores
+    Friend OrderByDesc As Boolean = True
     Friend Players As New Dictionary(Of String, PlayerEntry)
-    'gros:15:10056:545:44566
+    Friend GlobalScoreboard As New List(Of GameRecord)
+    'gros:15:10
     Structure PlayerEntry
         Friend playerName As String
-        Friend lastDiscovered As Integer
-        Friend howManyDiscovered As Integer
+        Friend lastDiscoveredAt As Integer
+        Friend howManyCasesDiscovered As Integer
         Friend howManyGames As Integer
         Friend cumulatedTime As Integer
+        Friend GameRecords As List(Of GameRecord)
     End Structure
+
+    Structure GameRecord
+        Friend lastDiscoveredAt As Integer
+        Friend howManyCasesDiscovered As Integer
+        Friend performedBy As String
+    End Structure
+
+    Public Function getBestGameForEachPlayer()
+        Dim bestGames As New Dictionary(Of String, GameRecord)
+
+        For Each gr As GameRecord In GlobalScoreboard
+            If Not (bestGames.ContainsKey(gr.performedBy)) Then
+                bestGames.Add(gr.performedBy, gr)
+            End If
+        Next
+        Return bestGames
+    End Function
     Public Sub LoadEntries()
         Try
+            Players.Clear()
+            GlobalScoreboard.Clear()
+            Leaderboard.lst_leaderboard.Items.Clear()
             loadScoreboard()
         Catch ex As Exception
             MsgBox("Cannot load the scoreboard...")
             Leaderboard.Close()
         End Try
 
-        Dim cheatCodeFraude As New ListBox
-        'cheatCodeFraude.Items.Add()
-        Leaderboard.lst_leaderboard.Sorted = True
+        If (OrderByDesc) Then
+            GlobalScoreboard = GlobalScoreboard.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
+        Else
+            GlobalScoreboard = GlobalScoreboard.OrderBy(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
+        End If
+
+        Dim bestGame As Dictionary(Of String, GameRecord) = getBestGameForEachPlayer()
+
         Try
-            For Each playerName As String In Players.Keys
-                Dim p As PlayerEntry = Players.Item(playerName)
-                Console.WriteLine(CStr(p.playerName) + " " + CStr(p.lastDiscovered))
-                Leaderboard.lst_leaderboard.Items.Add(p.playerName & " " & p.lastDiscovered & " " & p.howManyDiscovered & " " & p.howManyGames & " " & p.cumulatedTime)
+            Dim place As Integer = 1
+            For Each player As String In bestGame.Keys
+                Dim rank As String
+                If place = 1 Then
+                    rank = "1st : "
+                ElseIf place = 2 Then
+                    rank = "2nd : "
+                ElseIf place = 3 Then
+                    rank = "3rd : "
+                Else
+                    rank = place & "th : "
+                End If
+
+                Dim playerEntry As GameRecord = bestGame.Item(player)
+                Leaderboard.lst_leaderboard.Items.Add(rank & playerEntry.performedBy & " has discovered " & playerEntry.howManyCasesDiscovered & " cases in " & playerEntry.lastDiscoveredAt & " seconds.")
+                place += 1
             Next
         Catch e As Exception
             MsgBox(e.Message)
         End Try
     End Sub
 
-    Public Sub WriteNewEntry()
-        Encryption.Write(saveFilePath, "new message")
+    Public Sub WriteNewEntry(playerName As Integer, lastDiscoveredAt As Integer, howManyCasesDiscovered As Integer)
+        Encryption.Write(saveFilePath, playerName & ":" & lastDiscoveredAt & ":" & howManyCasesDiscovered)
     End Sub
 
     Public Sub loadScoreboard()
@@ -51,21 +91,48 @@
                     Dim data As String() = line.Split(":")
                     data(0) = Replace(data(0), vbLf, "") ' remove the line break
 
-                    Console.WriteLine(data(0) + ":" + CStr(data(1)) + ":" + CStr(data(2)) + ":" + CStr(data(3)) + ":" + CStr(data(4)))
-                    If data.Length <> 5 Then
+                    Console.WriteLine(data(0) + ":" + CStr(data(1)) + ":" + CStr(data(2)))
+                    If data.Length <> 3 Then
                         MsgBox("Invalid entry for " + data(0))
                     End If
-                    Dim p As New PlayerEntry()
-                    p.playerName = data(0)
-                    p.lastDiscovered = data(1)
-                    p.howManyDiscovered = data(2)
-                    p.howManyGames = data(3)
-                    p.cumulatedTime = data(4)
-                    If Not (Players.ContainsKey(p.playerName)) Then
+                    ' GameRecord template in the file : playerName:lastDiscoveredAt:howManyCasesDiscovered
+
+                    If Not (Players.ContainsKey(data(0))) Then
+                        Dim p As New PlayerEntry()
+                        p.playerName = data(0)
+                        p.lastDiscoveredAt = data(1)
+                        p.cumulatedTime = data(1)
+                        p.howManyCasesDiscovered = data(2)
+                        p.howManyGames = 1
+
+                        p.GameRecords = New List(Of GameRecord)
+                        Dim gr As New GameRecord()
+                        gr.lastDiscoveredAt = data(1)
+                        gr.howManyCasesDiscovered = data(2)
+                        gr.performedBy = data(0)
+                        p.GameRecords.Add(gr)
+                        GlobalScoreboard.Add(gr)
+
                         Players.Add(p.playerName, p)
+                    Else
+                        Dim tmp As PlayerEntry = Players.Item(data(0))
+                        Players.Remove(data(0))
+                        Dim gameRecord As New GameRecord
+
+                        gameRecord.lastDiscoveredAt = data(1)
+                        gameRecord.howManyCasesDiscovered = data(2)
+                        gameRecord.performedBy = data(0)
+
+                        tmp.cumulatedTime += gameRecord.lastDiscoveredAt
+                        tmp.howManyCasesDiscovered += gameRecord.howManyCasesDiscovered
+                        tmp.howManyGames += 1
+                        tmp.GameRecords.Add(gameRecord)
+
+                        GlobalScoreboard.Add(gameRecord)
+                        Players.Add(data(0), tmp)
                     End If
                 Catch ex As Exception
-                    MsgBox("impossible --> Invalid Entry, file has been modified")
+                    MsgBox(ex.Message)
                 End Try
             Next
         Catch e As Exception
