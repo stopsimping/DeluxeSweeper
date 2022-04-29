@@ -33,15 +33,15 @@ Partial Class Game
         Me.p_cases = New System.Windows.Forms.Panel()
         Me.abandon = New System.Windows.Forms.Button()
         Me.pause = New System.Windows.Forms.Button()
+        Me.boom = New DeluxeSweeper.InvisiblePB()
         Me.sad = New DeluxeSweeper.InvisiblePB()
         Me.gameoverStatic = New DeluxeSweeper.InvisiblePB()
         Me.pb_pause = New DeluxeSweeper.InvisiblePB()
-        Me.boom = New DeluxeSweeper.InvisiblePB()
         Me.gb_gameinfos.SuspendLayout()
+        CType(Me.boom, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sad, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gameoverStatic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pb_pause, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.boom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lb_username
@@ -145,6 +145,16 @@ Partial Class Game
         Me.pause.Text = "Pause"
         Me.pause.UseVisualStyleBackColor = True
         '
+        'boom
+        '
+        Me.boom.Image = Global.DeluxeSweeper.My.Resources.Resources.boom
+        Me.boom.Location = New System.Drawing.Point(-57, -71)
+        Me.boom.Name = "boom"
+        Me.boom.Size = New System.Drawing.Size(592, 740)
+        Me.boom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.boom.TabIndex = 5
+        Me.boom.TabStop = False
+        '
         'sad
         '
         Me.sad.Image = Global.DeluxeSweeper.My.Resources.Resources.sad
@@ -178,16 +188,6 @@ Partial Class Game
         Me.pb_pause.TabStop = False
         Me.pb_pause.Visible = False
         '
-        'boom
-        '
-        Me.boom.Image = Global.DeluxeSweeper.My.Resources.Resources.boom
-        Me.boom.Location = New System.Drawing.Point(-57, -71)
-        Me.boom.Name = "boom"
-        Me.boom.Size = New System.Drawing.Size(592, 740)
-        Me.boom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.boom.TabIndex = 5
-        Me.boom.TabStop = False
-        '
         'Game
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -208,13 +208,13 @@ Partial Class Game
         Me.MinimizeBox = False
         Me.Name = "Game"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Game"
+        Me.Text = "Good Luck and Have Fun !"
         Me.gb_gameinfos.ResumeLayout(False)
         Me.gb_gameinfos.PerformLayout()
+        CType(Me.boom, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gameoverStatic, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pb_pause, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.boom, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

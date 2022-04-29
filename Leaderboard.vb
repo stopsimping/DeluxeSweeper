@@ -4,9 +4,12 @@ Imports System.IO
 Public Class Leaderboard
     Private Sub Leaderboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.BackColor = theme
+        Scores.checkForSaveFile()
         Scores.LoadEntries()
         updateButton()
-
+        loadNames()
+    End Sub
+    Private Sub loadNames()
         For Each name As String In Scores.Players.Keys
             If (Not Me.cb_players.Items.Contains(name)) Then
                 Me.cb_players.Items.Add(name)
@@ -40,6 +43,10 @@ Public Class Leaderboard
     End Sub
 
     Private Sub btn_details_Click(sender As Object, e As EventArgs) Handles btn_details.Click
+        If (Scores.Players.Count = 0 Or Not Scores.Players.ContainsKey(cb_players.Text)) Then
+            MsgBox("No players registered at the moment, or player not found!")
+            Return
+        End If
         Dim player = Scores.Players.Item(cb_players.Text)
         Dim bestGame As GameRecord = bestGameFrom(cb_players.Text)
         MsgBox("Player name : " & player.playerName & Environment.NewLine &

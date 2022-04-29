@@ -25,6 +25,7 @@ Partial Class GameSettings
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GameSettings))
         Me.tab_settings = New System.Windows.Forms.TabControl()
         Me.tb_basics = New System.Windows.Forms.TabPage()
+        Me.cb_deathsound = New System.Windows.Forms.CheckBox()
         Me.btn_saveBasics = New System.Windows.Forms.Button()
         Me.lb_theme = New System.Windows.Forms.Label()
         Me.cb_theme = New System.Windows.Forms.ComboBox()
@@ -58,7 +59,6 @@ Partial Class GameSettings
         Me.rb_lose = New System.Windows.Forms.RadioButton()
         Me.rb_win = New System.Windows.Forms.RadioButton()
         Me.savePath = New System.Windows.Forms.FolderBrowserDialog()
-        Me.cb_deathsound = New System.Windows.Forms.CheckBox()
         Me.tab_settings.SuspendLayout()
         Me.tb_basics.SuspendLayout()
         CType(Me.tb_gridSize, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,6 +103,17 @@ Partial Class GameSettings
         Me.tb_basics.TabIndex = 0
         Me.tb_basics.Text = "Basics"
         Me.tb_basics.UseVisualStyleBackColor = True
+        '
+        'cb_deathsound
+        '
+        Me.cb_deathsound.AutoSize = True
+        Me.cb_deathsound.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_deathsound.Location = New System.Drawing.Point(10, 213)
+        Me.cb_deathsound.Name = "cb_deathsound"
+        Me.cb_deathsound.Size = New System.Drawing.Size(190, 23)
+        Me.cb_deathsound.TabIndex = 14
+        Me.cb_deathsound.Text = "Enable death sound"
+        Me.cb_deathsound.UseVisualStyleBackColor = True
         '
         'btn_saveBasics
         '
@@ -450,24 +461,14 @@ Partial Class GameSettings
         Me.savePath.Description = "Save file path"
         Me.savePath.SelectedPath = "."
         '
-        'cb_deathsound
-        '
-        Me.cb_deathsound.AutoSize = True
-        Me.cb_deathsound.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cb_deathsound.Location = New System.Drawing.Point(10, 213)
-        Me.cb_deathsound.Name = "cb_deathsound"
-        Me.cb_deathsound.Size = New System.Drawing.Size(190, 23)
-        Me.cb_deathsound.TabIndex = 14
-        Me.cb_deathsound.Text = "Enable death sound"
-        Me.cb_deathsound.UseVisualStyleBackColor = True
-        '
         'GameSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(332, 328)
+        Me.ClientSize = New System.Drawing.Size(325, 328)
         Me.Controls.Add(Me.tab_settings)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "GameSettings"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Settings"

@@ -63,7 +63,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>deluxesweeper.ico</ApplicationIcon>
+    <ApplicationIcon>mine.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -227,6 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="deluxesweeper.ico" />
+    <Content Include="mine.ico" />
     <None Include="Resources\bingchilling.jpeg" />
     <None Include="Resources\death.wav" />
     <None Include="Resources\sad.png" />

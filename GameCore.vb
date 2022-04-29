@@ -50,7 +50,6 @@ Module GameCore
         Game.boom.Visible = False
         Game.Show()
 
-
         If (Settings.alwaysWin) Then
             h4ck4ut0r3s0l3r.autoResolve(True)
         End If
@@ -61,15 +60,6 @@ Module GameCore
 
         Game.pause.Enabled = Settings.EnablePause
         Game.abandon.Enabled = True
-
-        Console.WriteLine("------------------")
-
-        For I As Integer = 0 To columns - 1
-            For J As Integer = 0 To rows - 1
-                Console.Write("{0} ", grid(I, J))
-            Next
-            Console.WriteLine()
-        Next
 
     End Sub
     Public Sub changeGameRunning(status As Boolean)

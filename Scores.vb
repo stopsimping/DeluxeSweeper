@@ -17,9 +17,20 @@
         Friend howManyCasesDiscovered As Integer
         Friend performedBy As String
     End Structure
+    Public Sub checkForSaveFile()
+        Try
+            If Not (System.IO.File.Exists(Settings.saveFilePath)) Then
+                Dim file As IO.StreamWriter = System.IO.File.CreateText("save.msw")
+                file.Close()
+            End If
+            Scores.loadScoreboard()
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+    End Sub
     Public Sub newRecord(playerName As String, lastDiscoveredAt As Integer, howManyCasesDiscovered As Integer)
         Dim record As String = playerName & ":" & lastDiscoveredAt & ":" & howManyCasesDiscovered
-        MsgBox("record : " & record)
+        Scores.checkForSaveFile()
         Encryption.Write(saveFilePath, record)
     End Sub
     Public Function getBestGameForEachPlayer()
@@ -54,12 +65,6 @@
             Leaderboard.Close()
         End Try
 
-        'If (OrderByDesc) Then
-        'GlobalScoreboard = GlobalScoreboard.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
-        'Else
-        'GlobalScoreboard = GlobalScoreboard.OrderBy(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
-        'End If
-
         Dim bestGame As List(Of GameRecord) = getBestGameForEachPlayer()
         bestGame = bestGame.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
         Try
@@ -80,7 +85,7 @@
                 place += 1
             Next
         Catch e As Exception
-            MsgBox(e.Message)
+            'MsgBox(e.Message)
         End Try
     End Sub
 
@@ -89,12 +94,17 @@
         Dim PText As String
         Try
             If (System.IO.File.Exists(Settings.saveFilePath)) Then
-                PText = Encryption.Decrypt(saveFilePath)
+                If (System.IO.File.ReadAllText(Settings.saveFilePath).Length = 0) Then
+                    Return
+                Else
+                    PText = Encryption.Decrypt(saveFilePath)
+                End If
             Else
                 MsgBox("No file founded, cannot load the scoreboard !")
                 Leaderboard.Close()
                 Return
             End If
+
 
             For Each line As String In PText.Split(Environment.NewLine)
                 Try
@@ -103,7 +113,7 @@
 
                     Console.WriteLine(data(0) + ":" + CStr(data(1)) + ":" + CStr(data(2)))
                     If data.Length <> 3 Then
-                        MsgBox("Invalid entry for " + data(0))
+                        MsgBox("Invalid entry, data has been modified by the user")
                     End If
                     ' GameRecord template in the file : playerName:lastDiscoveredAt:howManyCasesDiscovered
 
@@ -142,7 +152,7 @@
                         Players.Add(data(0), tmp)
                     End If
                 Catch ex As Exception
-                    MsgBox(ex.Message)
+                    MsgBox("Invalid data, it has been modified by the user!")
                 End Try
             Next
         Catch e As Exception

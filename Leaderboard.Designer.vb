@@ -103,6 +103,7 @@ Partial Class Leaderboard
         Me.Controls.Add(Me.lst_leaderboard)
         Me.Controls.Add(Me.lb_scoreboard)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "Leaderboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Leaderboard"
