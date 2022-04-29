@@ -1,6 +1,7 @@
 ﻿Public Class Game
 
     Private Sub Game_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.BackColor = theme
         lb_username.Text = GameCore.getUsername()
         GameCore.startTimer(sender, e)
         GameCore.changeGameRunning(True)
@@ -59,4 +60,5 @@
             OnPause = False
         End If
     End Sub
+
 End Class

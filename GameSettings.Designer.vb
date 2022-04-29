@@ -27,7 +27,7 @@ Partial Class GameSettings
         Me.tb_basics = New System.Windows.Forms.TabPage()
         Me.btn_saveBasics = New System.Windows.Forms.Button()
         Me.lb_theme = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cb_theme = New System.Windows.Forms.ComboBox()
         Me.lb_mines = New System.Windows.Forms.Label()
         Me.sb_mines = New System.Windows.Forms.HScrollBar()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -44,6 +44,11 @@ Partial Class GameSettings
         Me.tb_filePath = New System.Windows.Forms.TextBox()
         Me.lb_savePath = New System.Windows.Forms.Label()
         Me.gb_pauseAndtimer = New System.Windows.Forms.GroupBox()
+        Me.lb_maxseconds = New System.Windows.Forms.Label()
+        Me.lb_zero = New System.Windows.Forms.Label()
+        Me.lb_seconds = New System.Windows.Forms.Label()
+        Me.lb_howmanyseconds = New System.Windows.Forms.Label()
+        Me.tb_seconds = New System.Windows.Forms.TrackBar()
         Me.btn_pause = New System.Windows.Forms.CheckBox()
         Me.btn_timer = New System.Windows.Forms.CheckBox()
         Me.tb_hack = New System.Windows.Forms.TabPage()
@@ -53,6 +58,7 @@ Partial Class GameSettings
         CType(Me.tb_gridSize, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tb_advanced.SuspendLayout()
         Me.gb_pauseAndtimer.SuspendLayout()
+        CType(Me.tb_seconds, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tab_settings
@@ -60,6 +66,7 @@ Partial Class GameSettings
         Me.tab_settings.Controls.Add(Me.tb_basics)
         Me.tab_settings.Controls.Add(Me.tb_advanced)
         Me.tab_settings.Controls.Add(Me.tb_hack)
+        Me.tab_settings.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tab_settings.Location = New System.Drawing.Point(12, 19)
         Me.tab_settings.Name = "tab_settings"
         Me.tab_settings.SelectedIndex = 0
@@ -70,7 +77,7 @@ Partial Class GameSettings
         '
         Me.tb_basics.Controls.Add(Me.btn_saveBasics)
         Me.tb_basics.Controls.Add(Me.lb_theme)
-        Me.tb_basics.Controls.Add(Me.ComboBox1)
+        Me.tb_basics.Controls.Add(Me.cb_theme)
         Me.tb_basics.Controls.Add(Me.lb_mines)
         Me.tb_basics.Controls.Add(Me.sb_mines)
         Me.tb_basics.Controls.Add(Me.Label4)
@@ -80,10 +87,10 @@ Partial Class GameSettings
         Me.tb_basics.Controls.Add(Me.lb_dim)
         Me.tb_basics.Controls.Add(Me.grid_dim)
         Me.tb_basics.Controls.Add(Me.tb_gridSize)
-        Me.tb_basics.Location = New System.Drawing.Point(4, 22)
+        Me.tb_basics.Location = New System.Drawing.Point(4, 24)
         Me.tb_basics.Name = "tb_basics"
         Me.tb_basics.Padding = New System.Windows.Forms.Padding(3)
-        Me.tb_basics.Size = New System.Drawing.Size(290, 271)
+        Me.tb_basics.Size = New System.Drawing.Size(290, 269)
         Me.tb_basics.TabIndex = 0
         Me.tb_basics.Text = "Basics"
         Me.tb_basics.UseVisualStyleBackColor = True
@@ -108,22 +115,22 @@ Partial Class GameSettings
         Me.lb_theme.TabIndex = 11
         Me.lb_theme.Text = "Current theme :"
         '
-        'ComboBox1
+        'cb_theme
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Light", "Dark", "Eye Destroyer"})
-        Me.ComboBox1.Location = New System.Drawing.Point(154, 172)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 10
-        Me.ComboBox1.Text = "Default (Light)"
+        Me.cb_theme.FormattingEnabled = True
+        Me.cb_theme.Items.AddRange(New Object() {"Light", "Dark", "Eye Destroyer"})
+        Me.cb_theme.Location = New System.Drawing.Point(154, 172)
+        Me.cb_theme.Name = "cb_theme"
+        Me.cb_theme.Size = New System.Drawing.Size(121, 23)
+        Me.cb_theme.TabIndex = 10
+        Me.cb_theme.Text = "Default (Light)"
         '
         'lb_mines
         '
         Me.lb_mines.AutoSize = True
         Me.lb_mines.Location = New System.Drawing.Point(234, 136)
         Me.lb_mines.Name = "lb_mines"
-        Me.lb_mines.Size = New System.Drawing.Size(41, 13)
+        Me.lb_mines.Size = New System.Drawing.Size(42, 15)
         Me.lb_mines.TabIndex = 9
         Me.lb_mines.Text = "MINES"
         '
@@ -153,7 +160,7 @@ Partial Class GameSettings
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(124, 96)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(13, 13)
+        Me.Label3.Size = New System.Drawing.Size(14, 15)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "8"
         '
@@ -162,7 +169,7 @@ Partial Class GameSettings
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(262, 96)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(19, 13)
+        Me.Label2.Size = New System.Drawing.Size(21, 15)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "16"
         '
@@ -171,7 +178,7 @@ Partial Class GameSettings
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(19, 96)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(13, 13)
+        Me.Label1.Size = New System.Drawing.Size(14, 15)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "2"
         '
@@ -216,10 +223,10 @@ Partial Class GameSettings
         Me.tb_advanced.Controls.Add(Me.tb_filePath)
         Me.tb_advanced.Controls.Add(Me.lb_savePath)
         Me.tb_advanced.Controls.Add(Me.gb_pauseAndtimer)
-        Me.tb_advanced.Location = New System.Drawing.Point(4, 22)
+        Me.tb_advanced.Location = New System.Drawing.Point(4, 24)
         Me.tb_advanced.Name = "tb_advanced"
         Me.tb_advanced.Padding = New System.Windows.Forms.Padding(3)
-        Me.tb_advanced.Size = New System.Drawing.Size(290, 271)
+        Me.tb_advanced.Size = New System.Drawing.Size(290, 269)
         Me.tb_advanced.TabIndex = 1
         Me.tb_advanced.Text = "Advanced"
         Me.tb_advanced.UseVisualStyleBackColor = True
@@ -228,7 +235,7 @@ Partial Class GameSettings
         '
         Me.btn_animEclatax.AutoSize = True
         Me.btn_animEclatax.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_animEclatax.Location = New System.Drawing.Point(6, 195)
+        Me.btn_animEclatax.Location = New System.Drawing.Point(6, 213)
         Me.btn_animEclatax.Name = "btn_animEclatax"
         Me.btn_animEclatax.Size = New System.Drawing.Size(244, 23)
         Me.btn_animEclatax.TabIndex = 14
@@ -248,7 +255,7 @@ Partial Class GameSettings
         'btn_savePath
         '
         Me.btn_savePath.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_savePath.Location = New System.Drawing.Point(152, 126)
+        Me.btn_savePath.Location = New System.Drawing.Point(152, 157)
         Me.btn_savePath.Name = "btn_savePath"
         Me.btn_savePath.Size = New System.Drawing.Size(126, 23)
         Me.btn_savePath.TabIndex = 9
@@ -257,17 +264,17 @@ Partial Class GameSettings
         '
         'tb_filePath
         '
-        Me.tb_filePath.Location = New System.Drawing.Point(6, 155)
+        Me.tb_filePath.Location = New System.Drawing.Point(6, 186)
         Me.tb_filePath.Name = "tb_filePath"
         Me.tb_filePath.ReadOnly = True
-        Me.tb_filePath.Size = New System.Drawing.Size(278, 20)
+        Me.tb_filePath.Size = New System.Drawing.Size(278, 23)
         Me.tb_filePath.TabIndex = 8
         '
         'lb_savePath
         '
         Me.lb_savePath.AutoSize = True
         Me.lb_savePath.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_savePath.Location = New System.Drawing.Point(8, 126)
+        Me.lb_savePath.Location = New System.Drawing.Point(8, 157)
         Me.lb_savePath.Name = "lb_savePath"
         Me.lb_savePath.Size = New System.Drawing.Size(144, 19)
         Me.lb_savePath.TabIndex = 7
@@ -275,15 +282,66 @@ Partial Class GameSettings
         '
         'gb_pauseAndtimer
         '
+        Me.gb_pauseAndtimer.Controls.Add(Me.lb_maxseconds)
+        Me.gb_pauseAndtimer.Controls.Add(Me.lb_zero)
+        Me.gb_pauseAndtimer.Controls.Add(Me.lb_seconds)
+        Me.gb_pauseAndtimer.Controls.Add(Me.lb_howmanyseconds)
+        Me.gb_pauseAndtimer.Controls.Add(Me.tb_seconds)
         Me.gb_pauseAndtimer.Controls.Add(Me.btn_pause)
         Me.gb_pauseAndtimer.Controls.Add(Me.btn_timer)
         Me.gb_pauseAndtimer.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gb_pauseAndtimer.Location = New System.Drawing.Point(6, 40)
+        Me.gb_pauseAndtimer.Location = New System.Drawing.Point(6, 6)
         Me.gb_pauseAndtimer.Name = "gb_pauseAndtimer"
-        Me.gb_pauseAndtimer.Size = New System.Drawing.Size(278, 69)
+        Me.gb_pauseAndtimer.Size = New System.Drawing.Size(278, 145)
         Me.gb_pauseAndtimer.TabIndex = 0
         Me.gb_pauseAndtimer.TabStop = False
         Me.gb_pauseAndtimer.Text = "Timers and Pause"
+        '
+        'lb_maxseconds
+        '
+        Me.lb_maxseconds.AutoSize = True
+        Me.lb_maxseconds.Location = New System.Drawing.Point(240, 94)
+        Me.lb_maxseconds.Name = "lb_maxseconds"
+        Me.lb_maxseconds.Size = New System.Drawing.Size(36, 19)
+        Me.lb_maxseconds.TabIndex = 6
+        Me.lb_maxseconds.Text = "600"
+        '
+        'lb_zero
+        '
+        Me.lb_zero.AutoSize = True
+        Me.lb_zero.Location = New System.Drawing.Point(17, 94)
+        Me.lb_zero.Name = "lb_zero"
+        Me.lb_zero.Size = New System.Drawing.Size(18, 19)
+        Me.lb_zero.TabIndex = 5
+        Me.lb_zero.Text = "0"
+        '
+        'lb_seconds
+        '
+        Me.lb_seconds.AutoSize = True
+        Me.lb_seconds.Location = New System.Drawing.Point(177, 72)
+        Me.lb_seconds.Name = "lb_seconds"
+        Me.lb_seconds.Size = New System.Drawing.Size(72, 19)
+        Me.lb_seconds.TabIndex = 4
+        Me.lb_seconds.Text = "SECONDS"
+        '
+        'lb_howmanyseconds
+        '
+        Me.lb_howmanyseconds.AutoSize = True
+        Me.lb_howmanyseconds.Location = New System.Drawing.Point(21, 72)
+        Me.lb_howmanyseconds.Name = "lb_howmanyseconds"
+        Me.lb_howmanyseconds.Size = New System.Drawing.Size(162, 19)
+        Me.lb_howmanyseconds.TabIndex = 3
+        Me.lb_howmanyseconds.Text = "How many seconds:"
+        '
+        'tb_seconds
+        '
+        Me.tb_seconds.Location = New System.Drawing.Point(36, 94)
+        Me.tb_seconds.Maximum = 600
+        Me.tb_seconds.Minimum = 5
+        Me.tb_seconds.Name = "tb_seconds"
+        Me.tb_seconds.Size = New System.Drawing.Size(204, 45)
+        Me.tb_seconds.TabIndex = 2
+        Me.tb_seconds.Value = 5
         '
         'btn_pause
         '
@@ -313,10 +371,10 @@ Partial Class GameSettings
         '
         'tb_hack
         '
-        Me.tb_hack.Location = New System.Drawing.Point(4, 22)
+        Me.tb_hack.Location = New System.Drawing.Point(4, 24)
         Me.tb_hack.Name = "tb_hack"
         Me.tb_hack.Padding = New System.Windows.Forms.Padding(3)
-        Me.tb_hack.Size = New System.Drawing.Size(290, 271)
+        Me.tb_hack.Size = New System.Drawing.Size(290, 269)
         Me.tb_hack.TabIndex = 2
         Me.tb_hack.Text = "Hack"
         Me.tb_hack.UseVisualStyleBackColor = True
@@ -344,6 +402,7 @@ Partial Class GameSettings
         Me.tb_advanced.PerformLayout()
         Me.gb_pauseAndtimer.ResumeLayout(False)
         Me.gb_pauseAndtimer.PerformLayout()
+        CType(Me.tb_seconds, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -361,7 +420,7 @@ Partial Class GameSettings
     Friend WithEvents sb_mines As HScrollBar
     Friend WithEvents lb_mines As Label
     Friend WithEvents lb_theme As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cb_theme As ComboBox
     Friend WithEvents btn_saveBasics As Button
     Friend WithEvents gb_pauseAndtimer As GroupBox
     Friend WithEvents btn_pause As CheckBox
@@ -372,4 +431,9 @@ Partial Class GameSettings
     Friend WithEvents lb_savePath As Label
     Friend WithEvents btn_save As Button
     Friend WithEvents btn_animEclatax As CheckBox
+    Friend WithEvents lb_maxseconds As Label
+    Friend WithEvents lb_zero As Label
+    Friend WithEvents lb_seconds As Label
+    Friend WithEvents lb_howmanyseconds As Label
+    Friend WithEvents tb_seconds As TrackBar
 End Class

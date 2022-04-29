@@ -14,7 +14,7 @@ Module GameCore
     Private remainingFlags As Integer
     Private gameRunning As Boolean = False
 
-    Private theme As Integer
+    Private theme As Color
 
     Sub Main()
         columns = Settings.gridSize ' Default : 8 

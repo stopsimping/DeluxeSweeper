@@ -5,6 +5,7 @@
         Me.lb_dim.Text = CType(GameCore.getCols(), String) + "x" + CType(GameCore.getRows(), String)
         Me.lb_mines.Text = CType(getDiscoMines(), String)
         Me.lb_latest.Text = "at " + CType(GameCore.getLastDiscovered, String) + " secs"
+        Me.BackColor = theme
     End Sub
     Private closeEvent As Boolean = False
     Private Sub GameStats_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing

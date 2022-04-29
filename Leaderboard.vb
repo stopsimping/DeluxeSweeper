@@ -3,6 +3,7 @@ Imports System.IO
 
 Public Class Leaderboard
     Private Sub Leaderboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.BackColor = theme
         Scores.LoadEntries()
         updateButton()
 
@@ -44,7 +45,7 @@ Public Class Leaderboard
         MsgBox("Player name : " & player.playerName & Environment.NewLine &
                "- Best discovered cases number : " & bestGame.howManyCasesDiscovered & Environment.NewLine &
                "- Performed in : " & bestGame.lastDiscoveredAt & " seconds !" & Environment.NewLine &
-               "- Cumulated time : " & player.cumulatedTime & "seconds !" & Environment.NewLine &
+               "- Cumulated time : " & player.cumulatedTime & " seconds !" & Environment.NewLine &
                "- Games played : " & player.howManyGames, vbQuestion + vbOKOnly, "Infos from : " & player.playerName)
     End Sub
 End Class

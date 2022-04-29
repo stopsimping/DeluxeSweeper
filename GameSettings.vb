@@ -10,7 +10,13 @@
         Me.btn_timer.Checked = timerEnabled
         Me.btn_pause.Checked = EnablePause
         Me.tb_filePath.Text = saveFilePath
+        Me.lb_seconds.Text = CStr(seconds)
+        Me.BackColor = theme
         savePath.SelectedPath = saveFilePath
+
+        Dim enumColor As New KnownColor
+        Dim Colors As Array = [Enum].GetValues(enumColor.GetType())
+        cb_theme.DataSource = Colors
     End Sub
     Private Sub tb_gridSize_Scroll(sender As Object, e As EventArgs) Handles tb_gridSize.Scroll
         Settings.gridSize = tb_gridSize.Value + (tb_gridSize.Value Mod 2)
@@ -38,12 +44,6 @@
         Settings.mines = sb_mines.Value Mod sb_mines.Maximum
 
         Me.lb_mines.Text = CType(mines, String) + " mines"
-
-
-    End Sub
-
-    Private Sub themeChange()
-
     End Sub
 
     Private Sub btn_pause_CheckedChanged(sender As Object, e As EventArgs) Handles btn_pause.CheckedChanged
@@ -68,6 +68,23 @@
         timerEnabled = btn_timer.Checked
         EnablePause = btn_pause.Checked
         animationEclatax = btn_animEclatax.Checked
+        seconds = tb_seconds.Value
+
         MsgBox("Settings saved successfully!")
+    End Sub
+
+    Private Sub tb_seconds_Scroll(sender As Object, e As EventArgs) Handles tb_seconds.Scroll
+        Me.lb_seconds.Text = CStr(tb_seconds.Value)
+    End Sub
+
+    Private Sub btn_saveBasics_Click(sender As Object, e As EventArgs) Handles btn_saveBasics.Click
+
+        If [Enum].IsDefined(GetType(KnownColor), cb_theme.Text) Then
+            theme = Color.FromName(cb_theme.Text)
+        End If
+
+        For Each form As Form In My.Application.OpenForms
+            form.BackColor = theme
+        Next
     End Sub
 End Class
