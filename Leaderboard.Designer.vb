@@ -26,6 +26,9 @@ Partial Class Leaderboard
         Me.lb_scoreboard = New System.Windows.Forms.Label()
         Me.lst_leaderboard = New System.Windows.Forms.ListBox()
         Me.btn_sort = New System.Windows.Forms.Button()
+        Me.cb_players = New System.Windows.Forms.ComboBox()
+        Me.lb_search = New System.Windows.Forms.Label()
+        Me.btn_details = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lb_scoreboard
@@ -51,6 +54,7 @@ Partial Class Leaderboard
         '
         'btn_sort
         '
+        Me.btn_sort.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_sort.Location = New System.Drawing.Point(343, 302)
         Me.btn_sort.Name = "btn_sort"
         Me.btn_sort.Size = New System.Drawing.Size(214, 23)
@@ -58,11 +62,43 @@ Partial Class Leaderboard
         Me.btn_sort.Text = "Unknown state"
         Me.btn_sort.UseVisualStyleBackColor = True
         '
+        'cb_players
+        '
+        Me.cb_players.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_players.FormattingEnabled = True
+        Me.cb_players.Location = New System.Drawing.Point(12, 72)
+        Me.cb_players.Name = "cb_players"
+        Me.cb_players.Size = New System.Drawing.Size(183, 23)
+        Me.cb_players.TabIndex = 4
+        '
+        'lb_search
+        '
+        Me.lb_search.AutoSize = True
+        Me.lb_search.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_search.Location = New System.Drawing.Point(12, 50)
+        Me.lb_search.Name = "lb_search"
+        Me.lb_search.Size = New System.Drawing.Size(144, 19)
+        Me.lb_search.TabIndex = 5
+        Me.lb_search.Text = "Search by name:"
+        '
+        'btn_details
+        '
+        Me.btn_details.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_details.Location = New System.Drawing.Point(12, 101)
+        Me.btn_details.Name = "btn_details"
+        Me.btn_details.Size = New System.Drawing.Size(183, 23)
+        Me.btn_details.TabIndex = 6
+        Me.btn_details.Text = "Detailed Informations"
+        Me.btn_details.UseVisualStyleBackColor = True
+        '
         'Leaderboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(705, 354)
+        Me.Controls.Add(Me.btn_details)
+        Me.Controls.Add(Me.lb_search)
+        Me.Controls.Add(Me.cb_players)
         Me.Controls.Add(Me.btn_sort)
         Me.Controls.Add(Me.lst_leaderboard)
         Me.Controls.Add(Me.lb_scoreboard)
@@ -77,4 +113,7 @@ Partial Class Leaderboard
     Friend WithEvents lb_scoreboard As Label
     Friend WithEvents lst_leaderboard As ListBox
     Friend WithEvents btn_sort As Button
+    Friend WithEvents cb_players As ComboBox
+    Friend WithEvents lb_search As Label
+    Friend WithEvents btn_details As Button
 End Class

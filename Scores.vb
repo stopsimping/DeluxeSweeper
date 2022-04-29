@@ -33,6 +33,16 @@
         Next
         Return bestGames.Values.ToList
     End Function
+
+    Public Function bestGameFrom(player As String)
+        Dim bestGame As List(Of GameRecord) = getBestGameForEachPlayer()
+        For Each game As GameRecord In bestGame
+            If game.performedBy = player Then
+                Return game
+            End If
+        Next
+        Return Nothing
+    End Function
     Public Sub LoadEntries()
         Try
             Players.Clear()
@@ -51,12 +61,7 @@
         'End If
 
         Dim bestGame As List(Of GameRecord) = getBestGameForEachPlayer()
-        If (OrderByDesc) Then
-            bestGame = bestGame.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
-        Else
-            bestGame = bestGame.OrderBy(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
-        End If
-
+        bestGame = bestGame.OrderByDescending(Function(x) x.howManyCasesDiscovered).ThenBy(Function(x) x.lastDiscoveredAt).ToList()
         Try
             Dim place As Integer = 1
             For Each playerEntry As GameRecord In bestGame
