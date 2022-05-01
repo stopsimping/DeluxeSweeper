@@ -5,6 +5,7 @@
         Me.lb_dim.Text = CType(GameCore.getCols(), String) + "x" + CType(GameCore.getRows(), String)
         Me.lb_mines.Text = CType(getDiscoMines(), String)
         Me.lb_latest.Text = "at " + CType(GameCore.getLastDiscovered, String) + " secs"
+        Me.lb_cases.Text = CType(GameCore.getDiscoCases, String)
         Me.BackColor = theme
     End Sub
     Private closeEvent As Boolean = False

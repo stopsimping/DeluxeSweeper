@@ -38,6 +38,8 @@ Partial Class GameStats
         Me.lb_sec = New System.Windows.Forms.Label()
         Me.lb_seconds = New System.Windows.Forms.Label()
         Me.btn_exit = New System.Windows.Forms.Button()
+        Me.lb_cases = New System.Windows.Forms.Label()
+        Me.lb_howmanycases = New System.Windows.Forms.Label()
         CType(Me.win, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lose, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_gamesettings.SuspendLayout()
@@ -78,40 +80,40 @@ Partial Class GameStats
         'lb_discomines
         '
         Me.lb_discomines.AutoSize = True
-        Me.lb_discomines.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_discomines.Location = New System.Drawing.Point(12, 271)
+        Me.lb_discomines.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_discomines.Location = New System.Drawing.Point(13, 266)
         Me.lb_discomines.Name = "lb_discomines"
-        Me.lb_discomines.Size = New System.Drawing.Size(226, 24)
+        Me.lb_discomines.Size = New System.Drawing.Size(171, 19)
         Me.lb_discomines.TabIndex = 4
         Me.lb_discomines.Text = "Discovered mines :"
         '
         'lb_mines
         '
         Me.lb_mines.AutoSize = True
-        Me.lb_mines.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_mines.Location = New System.Drawing.Point(231, 273)
+        Me.lb_mines.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_mines.Location = New System.Drawing.Point(182, 267)
         Me.lb_mines.Name = "lb_mines"
-        Me.lb_mines.Size = New System.Drawing.Size(118, 24)
+        Me.lb_mines.Size = New System.Drawing.Size(90, 19)
         Me.lb_mines.TabIndex = 5
         Me.lb_mines.Text = "MINECOUNT"
         '
         'lb_latestdisco
         '
         Me.lb_latestdisco.AutoSize = True
-        Me.lb_latestdisco.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_latestdisco.Location = New System.Drawing.Point(12, 304)
+        Me.lb_latestdisco.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_latestdisco.Location = New System.Drawing.Point(12, 290)
         Me.lb_latestdisco.Name = "lb_latestdisco"
-        Me.lb_latestdisco.Size = New System.Drawing.Size(226, 24)
+        Me.lb_latestdisco.Size = New System.Drawing.Size(207, 19)
         Me.lb_latestdisco.TabIndex = 6
-        Me.lb_latestdisco.Text = "Latest Discovery :"
+        Me.lb_latestdisco.Text = "Latest Discovered At :"
         '
         'lb_latest
         '
         Me.lb_latest.AutoSize = True
-        Me.lb_latest.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_latest.Location = New System.Drawing.Point(230, 306)
+        Me.lb_latest.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_latest.Location = New System.Drawing.Point(216, 291)
         Me.lb_latest.Name = "lb_latest"
-        Me.lb_latest.Size = New System.Drawing.Size(82, 24)
+        Me.lb_latest.Size = New System.Drawing.Size(63, 19)
         Me.lb_latest.TabIndex = 7
         Me.lb_latest.Text = "LATEST"
         '
@@ -200,11 +202,33 @@ Partial Class GameStats
         Me.btn_exit.Text = "Exit"
         Me.btn_exit.UseVisualStyleBackColor = True
         '
+        'lb_cases
+        '
+        Me.lb_cases.AutoSize = True
+        Me.lb_cases.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_cases.Location = New System.Drawing.Point(267, 316)
+        Me.lb_cases.Name = "lb_cases"
+        Me.lb_cases.Size = New System.Drawing.Size(54, 19)
+        Me.lb_cases.TabIndex = 16
+        Me.lb_cases.Text = "CASES"
+        '
+        'lb_howmanycases
+        '
+        Me.lb_howmanycases.AutoSize = True
+        Me.lb_howmanycases.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_howmanycases.Location = New System.Drawing.Point(12, 316)
+        Me.lb_howmanycases.Name = "lb_howmanycases"
+        Me.lb_howmanycases.Size = New System.Drawing.Size(261, 19)
+        Me.lb_howmanycases.TabIndex = 15
+        Me.lb_howmanycases.Text = "How many cases discovered : "
+        '
         'GameStats
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(389, 384)
+        Me.Controls.Add(Me.lb_cases)
+        Me.Controls.Add(Me.lb_howmanycases)
         Me.Controls.Add(Me.btn_exit)
         Me.Controls.Add(Me.gb_gamesettings)
         Me.Controls.Add(Me.lb_latest)
@@ -244,4 +268,6 @@ Partial Class GameStats
     Friend WithEvents lb_sec As Label
     Friend WithEvents lb_seconds As Label
     Friend WithEvents btn_exit As Button
+    Friend WithEvents lb_cases As Label
+    Friend WithEvents lb_howmanycases As Label
 End Class

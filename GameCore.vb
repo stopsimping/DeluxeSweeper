@@ -97,15 +97,16 @@ Module GameCore
     Public Function getMines()
         Return mines
     End Function
-
     Public Function getLastDiscovered()
         Return lastDiscovered
+    End Function
+    Public Function getDiscoCases()
+        Return discoveredCases
     End Function
 
     Public WithEvents timer As New Timer
 
     Private remains As Integer
-
     Public Sub startTimer(sender As Object, e As EventArgs)
         timer.Interval = 1000
         remains = GameCore.getTime()
