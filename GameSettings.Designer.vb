@@ -337,7 +337,7 @@ Partial Class GameSettings
         Me.tb_seconds.Name = "tb_seconds"
         Me.tb_seconds.Size = New System.Drawing.Size(204, 45)
         Me.tb_seconds.TabIndex = 2
-        Me.tb_seconds.Value = 5
+        Me.tb_seconds.Value = 60
         '
         'btn_pause
         '

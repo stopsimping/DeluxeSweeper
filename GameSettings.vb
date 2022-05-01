@@ -100,7 +100,7 @@
 
         ' Hack Tab
         Settings.alwaysWin = rb_win.Checked
-        Settings.alwaysLose = rb_win.Checked
+        Settings.alwaysLose = rb_lose.Checked
 
         If (rb_disable.Checked) Then
             Settings.alwaysWin = False

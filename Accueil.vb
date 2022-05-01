@@ -2,11 +2,14 @@
     Private Sub Accueil_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GameCore.Main() ' Load Default values
         Scores.checkForSaveFile()
+        updatePlayersNameList()
+    End Sub
+
+    Public Sub updatePlayersNameList()
         For Each name As String In Scores.Players.Keys
             Me.cb_name.Items.Add(name)
         Next
     End Sub
-
 
     Private Sub Accueil_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         Application.ExitThread()
@@ -35,6 +38,7 @@
             MsgBox("Please use Alphanumerics only.")
         Else
             GameCore.Init(Settings.gridSize, Settings.gridSize, Settings.mines, Settings.seconds, cb_name.Text)
+            Me.cb_name.Items.Add(cb_name.Text)
         End If
     End Sub
 
