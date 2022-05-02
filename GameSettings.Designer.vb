@@ -309,7 +309,7 @@ Partial Class GameSettings
         Me.lb_zero.Name = "lb_zero"
         Me.lb_zero.Size = New System.Drawing.Size(18, 19)
         Me.lb_zero.TabIndex = 5
-        Me.lb_zero.Text = "0"
+        Me.lb_zero.Text = "5"
         '
         'lb_seconds
         '
