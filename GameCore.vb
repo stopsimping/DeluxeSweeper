@@ -199,13 +199,10 @@ Module GameCore
         Next
 
     End Sub
-
     Private Sub PlaceMines(gmines As Integer)
         Dim placed = 0
         Randomize()
-
         Dim rand As Integer
-
         ' Init the Tab
         For I As Integer = 0 To columns - 1
             For J As Integer = 0 To rows - 1
@@ -237,7 +234,6 @@ Module GameCore
             Next
         End While
     End Sub
-
     Class Neightbour
         Public c As Integer
         Public r As Integer

@@ -2,7 +2,6 @@
     Friend OrderByDesc As Boolean = True
     Friend Players As New Dictionary(Of String, PlayerEntry)
     Friend GlobalScoreboard As New List(Of GameRecord)
-    'gros:15:10
     Structure PlayerEntry
         Friend playerName As String
         Friend lastDiscoveredAt As Integer
@@ -11,7 +10,6 @@
         Friend cumulatedTime As Integer
         Friend GameRecords As List(Of GameRecord)
     End Structure
-
     Structure GameRecord
         Friend lastDiscoveredAt As Integer
         Friend howManyCasesDiscovered As Integer
@@ -44,7 +42,6 @@
         Next
         Return bestGames.Values.ToList
     End Function
-
     Public Function bestGameFrom(player As String)
         Dim bestGame As List(Of GameRecord) = getBestGameForEachPlayer()
         For Each game As GameRecord In bestGame
@@ -88,7 +85,6 @@
             'MsgBox(e.Message)
         End Try
     End Sub
-
     Public Sub loadScoreboard()
         Leaderboard.lst_leaderboard.Refresh()
         Dim PText As String
@@ -116,7 +112,6 @@
                         MsgBox("Invalid entry, data has been modified by the user")
                     End If
                     ' GameRecord template in the file : playerName:lastDiscoveredAt:howManyCasesDiscovered
-
                     If Not (Players.ContainsKey(data(0))) Then
                         Dim p As New PlayerEntry()
                         p.playerName = data(0)
