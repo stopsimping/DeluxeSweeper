@@ -12,3 +12,7 @@
     Friend animationEclatax As Boolean = False
     Friend enableDeathsound As Boolean = True
 End Module
+
+
+
+
