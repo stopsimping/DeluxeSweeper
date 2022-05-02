@@ -135,7 +135,7 @@ Partial Class GameSettings
         'lb_mines
         '
         Me.lb_mines.AutoSize = True
-        Me.lb_mines.Location = New System.Drawing.Point(234, 136)
+        Me.lb_mines.Location = New System.Drawing.Point(230, 134)
         Me.lb_mines.Name = "lb_mines"
         Me.lb_mines.Size = New System.Drawing.Size(42, 15)
         Me.lb_mines.TabIndex = 9
@@ -440,7 +440,7 @@ Partial Class GameSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(325, 348)
+        Me.ClientSize = New System.Drawing.Size(320, 348)
         Me.Controls.Add(Me.tab_settings)
         Me.Controls.Add(Me.btn_save)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
